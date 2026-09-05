@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  13
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solver          incompressibleFluid;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1500;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   100;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+functions 
+{
+ shaftMassFlow
+  {
+    type            surfaceFieldValue;
+    libs            (fieldFunctionObjects);
+    log             yes;
+    writeFields     no;
+    writeControl    writeTime;
+
+    regionType      sampledSurface;
+    name            shaftPlaneY15;
+    sampledSurfaceDict
+    {
+        type            cuttingPlane;
+        planeType       pointAndNormal;
+        pointAndNormalDict
+        {
+            point       (19.5 15 5);   // mid-shaft in x & z, at y = 15 m
+            normal      (0 1 0);        // vertical flux (y is up)
+        }
+        interpolate     true;
+        bounds          (18.4 14.9 -0.1) (20.6 15.1 10.1);  // clip to the shaft only
+    }
+    operation       areaNormalIntegrate;   // ∫ U·dA  ->  m^3/s
+    fields          (U);
+  }
+}
+
+
+// ************************************************************************* //

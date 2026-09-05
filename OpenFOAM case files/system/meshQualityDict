@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  13
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      meshQualityDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+maxNonOrtho         75;
+//- Max skewness
+maxBoundarySkewness 30;
+maxInternalSkewness  8;
+//- Max concaveness (degrees)
+maxConcave          80;
+//- Minimum cell pyramid volume (m^3); -1e30 disables
+minVol              1e-13;
+//- Minimum tet decomposition quality; 1e-15 is strict
+minTetQuality       1e-20;
+//- Minimum face area; <0 disables
+minArea             -1;
+//- Minimum face twist
+minTwist            0.02;
+//- Minimum normalised cell determinant
+minDeterminant      0.001;
+minFaceWeight       0.02;
+minVolRatio         0.01;
+minTriangleTwist    -1;
+
+nSmoothScale        4;
+errorReduction      0.75;
+
+// ---- Relaxed limits used during layer addition (nRelaxedIter) ----
+// This block is what lets prism layers survive on sharp/thin geometry.
+relaxed
+{
+    minTetQuality   -1e30;   // <-- disables the tet check that was killing your layers
+    minDeterminant  1e-06;
+    minVolRatio     0.001;
+    minTwist        0.001;
+}
+//- minFaceWeight (0 -> 0.5)
+minFaceWeight 0.02;
+
+
+// ************************************************************************* //
