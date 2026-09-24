@@ -1,2 +1,3 @@
-Case setup is for OpeFOAM v13.
+Case setup is for OpenFOAM v13.
 To access the report and view results, click on "VTOL_CFD_Analysis_report.pdf" and click the download button in the top right. 
+Notes: reference values for Cm are not correct, hence Cm values are wrong.
