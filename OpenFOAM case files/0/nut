@@ -55,7 +55,7 @@ boundaryField
 
     vtol
     {
-        type            nutkWallFunction;
+        type            nutUSpaldingWallFunction;
         value           uniform 0;
     }
 }
