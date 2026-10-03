@@ -1,3 +1,3 @@
-Case setup is for OpenFOAM v13.
-To access the report and view results, click on "VTOL_CFD_report.pdf" and click the download button in the top right. 
-Notes: reference values for Cm are not correct, hence Cm values have been removed.
+Re=150k report is the case that includes L/D = 11.5 as reported on CV.
+Re=217k report has L/D = 9. 
+
