@@ -48,6 +48,7 @@ boundaryField
     {
         type            omegaWallFunction;
         value           $internalField;
+        blended         true;
     }
 
     #include "include/frontBackUpperPatches"
