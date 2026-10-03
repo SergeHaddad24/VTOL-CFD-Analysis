@@ -1,4 +1,4 @@
 Re=217k report is the case that includes L/D = 11.5 as reported on CV.
 Re=140k report has L/D = 9. 
 To run either case, adjust velocity in 0/include/initialConditions and system/forceCoeffs, corresponding wall-functions for 0/omega and 0/nut as well as turbulentKE and turbulentOmega in 0/include/initialConditions accordingly in each case.
-The new commits change turbulentKE and turbulentOmega to match velocity for a 5% turbulence intensity inlet, which is used for urban air settings.
+turbulentKE and turbulentOmega match velocity for a 5% turbulence intensity inlet, which is used for urban air settings.
