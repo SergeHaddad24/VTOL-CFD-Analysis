@@ -1,3 +1,3 @@
 Re=217k report is the case that includes L/D = 11.5 as reported on CV.
 Re=150k report has L/D = 9. 
-To run either case, adjust velocity in 0/include/initialConditions accordingly as well as corresponding wall-functions for omega and nut in each case.
+To run either case, adjust velocity in 0/include/initialConditions and system/forceCoeffs accordingly as well as corresponding wall-functions for omega and nut in each case.
