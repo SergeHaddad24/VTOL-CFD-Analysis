@@ -1,3 +1,4 @@
+FOR BOTH CASES: Wing is built into the fuselage with a 4 Degrees incidence angle
 Re=140k report is the case that includes L/D = 9 as reported on CV.
 Re=217k report has L/D=11.5, however initial condition of omega was set incorrectly. 
 To run either case, adjust velocity in 0/include/initialConditions and system/forceCoeffs, corresponding wall-functions for 0/omega and 0/nut as well as turbulentKE and turbulentOmega in 0/include/initialConditions accordingly in each case.
